@@ -4,6 +4,28 @@ using System.Windows.Forms;
 
 namespace TipPin
 {
+    internal class MenuColorTable : ProfessionalColorTable
+    {
+        public override Color MenuItemSelected
+        {
+            get { return Color.FromArgb(173, 214, 255); } // 更浅的蓝色hover背景
+        }
+
+        public override Color MenuItemSelectedGradientBegin
+        {
+            get { return Color.FromArgb(173, 214, 255); }
+        }
+
+        public override Color MenuItemSelectedGradientEnd
+        {
+            get { return Color.FromArgb(173, 214, 255); }
+        }
+
+        public override Color MenuItemBorder
+        {
+            get { return Color.FromArgb(100, 150, 200); } // 中等蓝色边框
+        }
+    }
     public class TrayIcon : IDisposable
     {
         private NotifyIcon _notifyIcon;
@@ -66,12 +88,15 @@ namespace TipPin
         {
             var menu = new ContextMenuStrip();
             menu.Font = new System.Drawing.Font("微软雅黑", 10); // 增大字体
-            menu.RenderMode = ToolStripRenderMode.System; // 使用系统默认渲染模式
+            menu.RenderMode = ToolStripRenderMode.Professional; // 使用专业渲染模式
             menu.BackColor = System.Drawing.Color.White; // 设置背景色
-            menu.ForeColor = System.Drawing.Color.Black; // 设置文字颜色
+            menu.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64); // 使用深灰色文字
             menu.ShowImageMargin = false; // 隐藏图像边距，避免灰色区域
             menu.ShowCheckMargin = false; // 隐藏复选边距
             menu.Margin = new Padding(0); // 设置菜单边距为0
+            
+            // 自定义hover效果
+            menu.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
             menu.Items.Add("显示主界面", null, OnShowMainWindow);
             menu.Items.Add("关于", null, OnAbout);
             menu.Items.Add("退出", null, OnExit);

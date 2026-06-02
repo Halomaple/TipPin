@@ -22,16 +22,10 @@ namespace TipPin
         private const int HTBOTTOMRIGHT = 17;
         private const int RESIZE_HANDLE_SIZE = 10;
 
-        private TrayIcon _trayIcon = null!; // 修复CS8618警告
-
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += OnLoaded;
-        }
-
-        private void OnLoaded(object sender, RoutedEventArgs e)
-        {
+            
             // 初始化窗口位置和大小
             Left = SystemParameters.WorkArea.Width / 2 - Width / 2;
             Top = SystemParameters.WorkArea.Height / 2 - Height / 2;
@@ -45,12 +39,11 @@ namespace TipPin
             MouseDown += OnMouseDown;
             MouseUp += OnMouseUp;
             MouseLeave += OnMouseLeave;
-            
-            // 添加右键菜单
-            ContextMenu = CreateContextMenu();
-            
-            // 初始化系统托盘图标
-            _trayIcon = new TrayIcon(this);
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            // 保留空方法，以防有其他用途
         }
 
         private bool _isDragging;

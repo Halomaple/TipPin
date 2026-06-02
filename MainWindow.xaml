@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:TipPin"
         Title="便利贴" Height="600" Width="400"
-        WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowState="Normal" WindowStartupLocation="CenterScreen">
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowState="Normal" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" Topmost="False">
     <Grid>
         <!-- 主窗口边框 -->
         <Border BorderBrush="#FFCCCCCC" BorderThickness="1" CornerRadius="8" 
