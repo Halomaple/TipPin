@@ -1,0 +1,58 @@
+﻿<Window x:Class="TipPin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TipPin"
+        Title="便利贴" Height="600" Width="400"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowState="Normal" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!-- 主窗口边框 -->
+        <Border BorderBrush="#FFCCCCCC" BorderThickness="1" CornerRadius="8" 
+                Background="#FFF5F5F5" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- 标题栏 -->
+                <Border Grid.Row="0" Background="Transparent" Padding="0" 
+                        CornerRadius="8,8,0,0" MouseLeftButtonDown="OnMouseLeftButtonDown">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0" Text="便利贴" 
+                                   FontFamily="微软雅黑" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,5,0">
+                            <Button Content="─" Width="36" Height="36" 
+                                    FontFamily="微软雅黑" Background="Transparent" 
+                                    BorderThickness="0" Foreground="Black" Click="OnMinimizeClick"
+                                    MouseEnter="OnButtonMouseEnter" MouseLeave="OnButtonMouseLeave"/>
+                            <Button Content="□" Width="36" Height="36" 
+                                    FontFamily="微软雅黑" Background="Transparent" 
+                                    BorderThickness="0" Foreground="Black" Click="OnMaximizeClick"
+                                    MouseEnter="OnButtonMouseEnter" MouseLeave="OnButtonMouseLeave"/>
+                            <Button Content="×" Width="36" Height="36" 
+                                    FontFamily="微软雅黑" Background="Transparent" 
+                                    BorderThickness="0" Foreground="Black" Click="OnCloseClick"
+                                    MouseEnter="OnCloseButtonMouseEnter" MouseLeave="OnButtonMouseLeave"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                
+                <!-- 便利贴内容区 -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="5">
+                    <ItemsControl x:Name="NotesContainer" Margin="5">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

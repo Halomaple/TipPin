@@ -1,0 +1,54 @@
+node_modules
+dist
+*.sources.zip
+/.history
+.codemate
+
+# Editor directories and files
+*build.log
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+.vscode
+.codemate
+
+# .NET Build and Output Directories
+bin/
+obj/
+*.user
+*.userosscache
+*.solutionhash
+*.vs
+*.vscode
+*.vscode-test
+*.vscode-test/
+
+# Visual Studio 2019 Cache
+.vs/
+
+# Visual Studio 2022 Cache
+.vs2022/
+
+# Visual Studio 2022 User Settings
+*.vssettings
+*.vscode-settings.json
+
+# NuGet Packages
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
